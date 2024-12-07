@@ -42,6 +42,8 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    //TODO implementation(androidx.lifecycle:lifecycle-extensions:2.0.0)
+    //implementation(HZ)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
