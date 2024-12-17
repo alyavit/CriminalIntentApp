@@ -18,6 +18,16 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
+
+    android {
+        buildFeatures.dataBinding = true
+        buildFeatures.viewBinding = true
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -75,5 +85,52 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    implementation ("androidx.core:core-ktx:1.10.1")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
+    implementation ("androidx.room:room-runtime:2.6.0")
+            kapt ("androidx.room:room-compiler:2.6.0")
+    implementation ("androidx.room:room-ktx:2.6.0")
+    implementation ("androidx.recyclerview:recyclerview:1.3.1")
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.google.code.gson:gson:2.10.1")
+
+    implementation ("org.kodein.di:kodein-di:7.11.0")
+    implementation ("org.kodein.di:kodein-di-framework-android-x:7.11.0")
+    implementation ("org.kodein.di:kodein-di-framework-android-x-viewmodel:7.11.0")
+
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
+    annotationProcessor ("com.github.bumptech.glide:glide:4.16.0")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+
+    implementation ("androidx.fragment:fragment-ktx:1.6.2")
+    implementation ("com.google.android.material:material:1.9.0")
+
+    implementation (libs.androidx.appcompat)
+            implementation (libs.material)
+            implementation (libs.androidx.activity)
+            implementation (libs.androidx.constraintlayout)
+            testImplementation (libs.junit)
+            androidTestImplementation (libs.androidx.junit)
+            androidTestImplementation (libs.androidx.espresso.core)
+   
+
+
+    // Views/Fragments Integration
+    implementation ("androidx.navigation:navigation-fragment:2.8.5")
+    implementation ("androidx.navigation:navigation-ui:2.8.5")
+
+    // Feature module support for Fragments
+    implementation ("androidx.navigation:navigation-dynamic-features-fragment:2.8.5")
+
+    // Testing Navigation
+    androidTestImplementation ("androidx.navigation:navigation-testing:2.8.5")
+
+    // JSON serialization library, works with the Kotlin serialization plugin.
+    implementation ("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
 
 }
+

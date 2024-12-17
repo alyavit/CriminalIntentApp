@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.criminalintent.ui.viewmodel.ItemIntentViewModel" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.view.ItemIntentFragment">
+
+
+    <EditText
+        android:id="@+id/TitleText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Title"
+        android:inputType="text"
+        android:text="@={viewModel.title}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/DescriptionText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Description"
+        android:inputType="text"
+        android:text="@={viewModel.description}"
+        app:layout_constraintEnd_toEndOf="@+id/TitleText"
+        app:layout_constraintStart_toStartOf="@+id/TitleText"
+        app:layout_constraintTop_toBottomOf="@+id/TitleText" />
+
+
+    <CheckBox
+        android:id="@+id/SolvedCheckBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:checked="@={viewModel.isSolved()}"
+        android:text="Intent Solved"
+        app:layout_constraintEnd_toEndOf="@+id/DescriptionText"
+        app:layout_constraintStart_toStartOf="@+id/DescriptionText"
+        app:layout_constraintTop_toBottomOf="@+id/DescriptionText" />
+
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"
+        android:day="@={viewModel.day}"
+        android:headerBackground="@color/teal_700"
+        android:month="@={viewModel.month}"
+        android:year="@={viewModel.year}"
+        app:layout_constraintBottom_toTopOf="@+id/SaveButton"
+        app:layout_constraintEnd_toEndOf="@+id/DescriptionText"
+        app:layout_constraintStart_toStartOf="@+id/TitleText"
+        app:layout_constraintTop_toBottomOf="@+id/SolvedCheckBox" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/SaveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="@color/teal_700"
+        android:contentDescription="Save Report"
+        android:onClick="@{viewModel.saveIntent}"
+        android:src="@drawable/ic_save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/RemoveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:backgroundTint="@color/teal_700"
+        android:contentDescription="Remove Report"
+        android:onClick="@{viewModel.removeIntent}"
+        android:src="@drawable/ic_delete"
+        app:layout_constraintBottom_toBottomOf="@+id/SaveButton"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
